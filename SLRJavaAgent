@@ -1,0 +1,87 @@
+package examples.HandsOn5;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author saman
+ */
+public class SimpleRegresionLineal {
+
+    public static double[] x = new double[9];
+    public static double[] y = new double[9];
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int l;
+       double r;
+            
+        x[0] = 651;
+        y[0] = 23;
+        x[1] = 762;
+        y[1] = 26;
+        x[2] = 856;
+        y[2] = 30;
+        x[3] = 1063;
+        y[3] = 34;
+        x[4] = 1190;
+        y[4] = 43;
+        x[5] = 1298;
+        y[5] = 48;
+        x[6] = 1421;
+        y[6] = 52;
+        x[7] = 1440;
+        y[7] = 57;
+        x[8] = 1518;
+        y[8] = 58;
+       
+        System.out.println("x: ");
+        l = sc.nextInt();
+
+              r  = (calcularM()* l) + calcularB();
+              // System.out.println(r);
+              System.out.println(r+ " = " +calcularM()+ " * "+l+" + " +calcularB());
+           
+    }
+    
+    static double calcularM(){
+        double c = 0;
+         double[] d = new double[9];
+        double e = 0;
+        double[] f = new double[9];
+        double g = 0;
+        double h = 0;
+        double w = 0;
+        for(int i = 0; i < 9; i++){
+               d[i] = y[i] * x[i]; 
+               e = sumatoria(d) * 9;
+               c = sumatoria(y) * sumatoria(x);
+               f[i] = (Math.pow(y[i], 2));
+               g = sumatoria(f) * 9;
+               h = sumatoria(y) * sumatoria(y);
+               w = (e - c) / (g - h);
+        }
+       return w;
+    }
+    
+    static double calcularB(){
+        double a = 0;
+        for(int i = 0; i < 9; i++){
+          //  a = (sumatoria(x) -(calcularM()*sumatoria(y))) / 9;
+          a = x[i] - (calcularM() * y[i]);
+        }
+        return a;
+    }
+    
+     static double sumatoria(double y[]){
+      double sum = 0;
+      for(int i = 0; i < 9; i++){
+              sum += y[i];
+      }
+      return sum;
+  }
+}
