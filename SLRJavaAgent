@@ -16,10 +16,17 @@ public class SimpleRegresionLineal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Scanner sc = new Scanner(System.in);
-       int l;
+      
+     
+        
+           
+    }
+	
+	static void mostrar(){
+	   Scanner sc = new Scanner(System.in);
+       double l;
        double r;
-            
+	     
         x[0] = 651;
         y[0] = 23;
         x[1] = 762;
@@ -38,15 +45,14 @@ public class SimpleRegresionLineal {
         y[7] = 57;
         x[8] = 1518;
         y[8] = 58;
-       
-        System.out.println("x: ");
-        l = sc.nextInt();
+	   
+	  System.out.println("x: ");
+        l = sc.nextDouble();
 
               r  = (calcularM()* l) + calcularB();
               // System.out.println(r);
               System.out.println(r+ " = " +calcularM()+ " * "+l+" + " +calcularB());
-           
-    }
+  }
     
     static double calcularM(){
         double c = 0;
@@ -84,4 +90,8 @@ public class SimpleRegresionLineal {
       }
       return sum;
   }
+  
+  
 }
+
+
